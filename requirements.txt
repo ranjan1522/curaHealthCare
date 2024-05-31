@@ -1,0 +1,7 @@
+allure-pytest
+allure-python-commons
+pip
+pytest
+selenium
+webdriver-manager
+pytest-html
