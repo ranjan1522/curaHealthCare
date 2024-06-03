@@ -14,18 +14,15 @@ pipeline {
 
         stage('Set up Python Environment') {
             steps {
-                sh '''
-                    python3 -m venv venv
-                    source venv/bin/activate
+                 bat """
                     pip install -r requirements.txt
-                '''
+                """
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh '''
-                    source ${VENV_DIR}/bin/activate
+                bat '''
                     pytest --html=report.html
                 '''
             }
