@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: '7-corrections-in-yml-file', url: 'https://github.com/ranjan1522/curaHealthCare.git'
+                git branch: 'main', url: 'https://github.com/ranjan1522/curaHealthCare.git'
             }
         }
 
