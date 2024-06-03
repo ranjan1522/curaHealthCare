@@ -14,14 +14,9 @@ pipeline {
 
         stage('Set up Python Environment') {
             steps {
-                script {
-                    // Check if virtual environment already exists
-                    if (!fileExists("${VENV_DIR}/bin/activate")) {
-                        sh 'python3 -m venv venv'
-                    }
-                }
                 sh '''
-                    source ${VENV_DIR}/bin/activate
+                    python3 -m venv venv
+                    source venv/bin/activate
                     pip install -r requirements.txt
                 '''
             }
