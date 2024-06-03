@@ -1,0 +1,5 @@
+info.txt
+report.html
+.idea
+.pytest_cache
+__pycache__/

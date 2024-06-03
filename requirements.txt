@@ -2,6 +2,6 @@ allure-pytest
 allure-python-commons
 pip
 pytest
-selenium
+selenium~=4.21.0
 webdriver-manager
 pytest-html
