@@ -1,4 +1,4 @@
-info.txt
+*.txt
 report.html
 .idea
 .pytest_cache
