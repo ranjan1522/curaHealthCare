@@ -1,12 +1,10 @@
 import time
-
 from selenium.webdriver.common.by import By
 from main_setup import BaseClass
 from commonLib import Library
 
 class AppointmentButton():
     def __init__(self, driver):
-       # super().__init__()
         self.driver = driver
         self.commonLib = Library()
 
