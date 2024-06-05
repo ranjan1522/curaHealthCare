@@ -3,3 +3,4 @@ report.html
 .idea
 .pytest_cache
 __pycache__/
+assets

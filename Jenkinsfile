@@ -14,7 +14,7 @@ pipeline {
 
         stage('Set up Python Environment') {
             steps {
-                 bat """
+                bat """
                     pip install -r requirements.txt
                 """
             }
@@ -23,19 +23,25 @@ pipeline {
         stage('Run Tests') {
             steps {
                 bat '''
-                    pytest --html=report.html
+                    pytest --html=./report/report.html
                 '''
             }
-            post {
-                always {
-                    archiveArtifacts artifacts: 'report.html', allowEmptyArchive: true
-                    publishHTML(target: [
-                        reportDir: '.',
-                        reportFiles: 'report.html',
-                        reportName: 'HTML Report'
-                    ])
-                }
-            }
+        }
+    }
+
+    post {
+        always {
+            // Archive the report
+            archiveArtifacts artifacts: 'report/**', allowEmptyArchive: true
+
+            // Publish HTML report
+            publishHTML(target: [
+                reportName: 'Test Report',
+                reportDir: 'report',
+                reportFiles: 'report.html',
+                alwaysLinkToLastBuild: true,
+                keepAll: true
+            ])
         }
     }
 }

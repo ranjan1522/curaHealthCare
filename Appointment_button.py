@@ -15,4 +15,4 @@ class AppointmentButton():
             appointment_button.click()
         except Exception as e:
             print(f"Appointment Exception Error: {e}")
-        time.sleep(10)
+            raise
