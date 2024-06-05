@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: '11-handling-assertion-extra-steps-in-except-block', url: 'https://github.com/ranjan1522/curaHealthCare.git'
+                git branch: 'main', url: 'https://github.com/ranjan1522/curaHealthCare.git'
             }
         }
 
