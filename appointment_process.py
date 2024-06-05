@@ -1,6 +1,7 @@
 from commonLib import Library
 from main_setup import *
 from selenium.webdriver.common.by import By
+from pytest_html_reporter import attach
 
 class Appointment_Process():
 
@@ -39,6 +40,6 @@ class Appointment_Process():
             assert vist_date_element.text == self.vist_date_message, f"Actual Value: {vist_date_element.text} does not match with Expected Value: {self.vist_date_message}"
             assert comment_element.text == self.comment_message, f"Actual Value: {comment_element.text} does not match with Expected Value: {self.comment_message}"
         except Exception as e:
-            self.driver.get_screenshot_as_file('webpage_element.png')
+            data = attach(self.driver.get_screenshot_as_png())
             print(f"Appointment Page element Error: {e} ")
             raise
