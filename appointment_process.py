@@ -16,7 +16,7 @@ class Appointment_Process():
         self.facility_message = "Facility"
         self.health_program_message = "Healthcare Program"
         self.vist_date_message = "Visit Date (Required)"
-        self.comment_message = "Comments"
+        self.comment_message = "Comment"
 
     def verify_appointment_page(self):
         try:
