@@ -1,4 +1,5 @@
 import time
+import platform
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from commonLib import Library
@@ -10,11 +11,15 @@ class LoginPage():
 
     def copy_paste(self, first_locator, second_locator):
         try:
+            if platform.system() == 'Darwin':  # macOS
+                command_key = Keys.COMMAND
+            else:  # Windows, Linux, etc.
+                command_key = Keys.CONTROL
             first_element_locator = self.driver.find_element(By.XPATH, first_locator)
-            first_element_locator.send_keys(Keys.CONTROL, "a")
-            first_element_locator.send_keys(Keys.CONTROL, "c")
+            first_element_locator.send_keys(command_key, "a")
+            first_element_locator.send_keys(command_key, "c")
             second_element_locator = self.driver.find_element(By.XPATH, second_locator)
-            second_element_locator.send_keys(Keys.CONTROL, "v")
+            second_element_locator.send_keys(command_key, "v")
         except Exception as e:
             print(f"Copy and Paste Exception Error: {e}")
             raise
