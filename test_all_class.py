@@ -1,4 +1,6 @@
 from Appointment_button import AppointmentButton
+from Logout import Logout
+from appointment_confirmation import appointment_confirmation
 from login_page import *
 from main_setup import BaseClass
 from appointment_process import *
@@ -29,3 +31,16 @@ class TestBaseClass:
         appointment_process_instance.select_calendar()
         appointment_process_instance.appointmnet_comment()
         appointment_process_instance.click_on_book_appointment_button()
+
+    def test_appointment_confirmation(self):
+        appointment_confirmation_instance = appointment_confirmation(self.driver)
+        appointment_confirmation_instance.verify_confirmation_url()
+        appointment_confirmation_instance.verify_first_heading()
+        appointment_confirmation_instance.verify_second_heading()
+        appointment_confirmation_instance.verify_all_web_element()
+        appointment_confirmation_instance.verify_submitted_element()
+
+    def test_logout(self):
+        logout_instance = Logout(self.driver)
+        logout_instance.click_on_menu()
+        logout_instance.click_on_logout()
